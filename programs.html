@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - APIGA Cambodia</title>
+    <meta name="description" content="Explore APIGA Cambodia's comprehensive programs in Internet governance, capacity building, and digital policy development.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="resources/logo.png">
+    <link rel="apple-touch-icon" href="resources/logo.png">
+    <link rel="manifest" href="resources/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4169E1',
+                        'secondary': '#00BFFF',
+                        'accent': '#87CEEB',
+                        'neutral': '#2C3E50',
+                        'cream': '#FEFEFE'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Source Code Pro', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #00BFFF, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .programs-hero {
+            background: linear-gradient(135deg, #4169E1 0%, #2C3E50 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .breadcrumb a {
+            color: #6B7280;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #4169E1;
+        }
+        
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #F3F4F6;
+        }
+        
+        .quiz-option.selected {
+            background-color: #4169E1;
+            color: white;
+        }
+        
+        .quiz-option.correct {
+            background-color: #10B981;
+            color: white;
+        }
+        
+        .quiz-option.incorrect {
+            background-color: #EF4444;
+            color: white;
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: #4169E1;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-body bg-cream text-neutral">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-display font-bold text-3xl text-primary">
+                        APIGA <span class="text-gradient">Cambodia</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="about.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">About</a>
+                        <a href="programs.html" class="nav-link text-primary font-semibold">Programs</a>
+                        <a href="organizing-committee.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">Organizing Committee</a>
+                        <a href="contact.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-neutral hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-neutral hover:text-primary">About</a>
+                <a href="programs.html" class="block px-3 py-2 text-primary font-semibold">Programs</a>
+                <a href="organizing-committee.html" class="block px-3 py-2 text-neutral hover:text-primary">Organizing Committee</a>
+                <a href="contact.html" class="block px-3 py-2 text-neutral hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="programs-hero pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-white">
+                <nav class="breadcrumb mb-8">
+                    <a href="index.html">Home</a> / <span class="text-white">Programs</span>
+                </nav>
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6">
+                    Program <span class="text-gradient">Agenda</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl">
+                    Detailed 2-day schedule featuring expert speakers, interactive workshops,
+                    and hands-on learning experiences in Internet governance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Program <span class="text-gradient">Overview</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join us for an intensive 2-day program designed to build comprehensive
+                    expertise in Internet governance and digital policy development.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16 reveal-element">
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                        📅
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Dates</h3>
+                    <p class="text-gray-600">July 15-16, 2025</p>
+                    <p class="text-sm text-gray-500 mt-2">Monday - Tuesday</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-neutral text-2xl font-bold mx-auto mb-6">
+                        📍
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Venue</h3>
+                    <p class="text-gray-600">Phnom Penh</p>
+                    <p class="text-sm text-gray-500 mt-2">Location TBA</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                        👥
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Participants</h3>
+                    <p class="text-gray-600">50 Selected Professionals</p>
+                    <p class="text-sm text-gray-500 mt-2">Multi-stakeholder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Agenda with Tabs -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Program <span class="text-gradient">Agenda</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Detailed schedule for our intensive 2-day Internet governance program
+                </p>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex justify-center mb-12 reveal-element">
+                <div class="bg-white rounded-xl p-2 shadow-lg">
+                    <button onclick="switchTab('day1')" class="tab-button active bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg mr-2" id="day1-tab">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">📅</span>
+                            <div class="text-left">
+                                <div>Day 1</div>
+                                <div class="text-sm opacity-90">Foundation & Framework</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button onclick="switchTab('day2')" class="tab-button bg-gray-100 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-200" id="day2-tab">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">🚀</span>
+                            <div class="text-left">
+                                <div>Day 2</div>
+                                <div class="text-sm opacity-70">Application & Action</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Day 1 Content -->
+            <div id="day1-content" class="tab-content active">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold text-primary mb-4">
+                        Day 1: <span class="text-gradient">Foundation & Framework</span>
+                    </h3>
+                    <p class="text-lg text-gray-600">
+                        Monday, July 15, 2025 | Building fundamental understanding of Internet governance
+                    </p>
+                </div>
+
+            <div class="space-y-6 reveal-element">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">9:00 - 9:30</div>
+                            <div class="text-sm text-gray-500">30 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Registration & Welcome</h3>
+                            <p class="text-gray-600 mb-3">
+                                Welcome reception, participant registration, and opening remarks setting the stage for
+                                our journey into Internet governance.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Networking</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Introduction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">9:30 - 11:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Internet Governance Fundamentals</h3>
+                            <p class="text-gray-600 mb-3">
+                                Comprehensive overview of Internet governance principles, the multistakeholder model,
+                                and key institutions shaping the global Internet ecosystem.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> Dr. Sarah Chen, ICANN Regional Director
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Keynote</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Multistakeholder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">11:00 - 11:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Networking and refreshments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">11:15 - 12:30</div>
+                            <div class="text-sm text-gray-500">75 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Cambodia's Digital Landscape</h3>
+                            <p class="text-gray-600 mb-3">
+                                In-depth analysis of Cambodia's digital transformation journey, policy frameworks,
+                                and the role of various stakeholders in shaping the digital economy.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> H.E. Chea Vandeth, Secretary of State, MPTC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Government</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Policy Framework</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Cambodia Context</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">12:30 - 13:30</div>
+                            <div class="text-sm text-gray-500">60 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Lunch & Networking</h3>
+                            <p class="text-gray-600">Networking lunch with industry professionals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">13:30 - 15:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">DNS & Technical Infrastructure</h3>
+                            <p class="text-gray-600 mb-3">
+                                Technical deep-dive into Domain Name System (DNS), Internet infrastructure,
+                                and the technical foundations that enable global Internet connectivity.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> James Park, Technical Expert, APNIC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Technical</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">DNS</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">15:00 - 15:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Afternoon refreshments and networking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">15:15 - 16:45</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Workshop: Multistakeholder Engagement</h3>
+                            <p class="text-gray-600 mb-3">
+                                Interactive workshop exploring effective multistakeholder collaboration,
+                                consensus-building, and best practices for inclusive policy development.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Facilitator:</strong> Maria Santos, Civil Society Expert
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Workshop</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Interactive</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">16:45 - 17:00</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Day 1 Wrap-up & Preview</h3>
+                            <p class="text-gray-600 mb-3">
+                                Summary of key learnings, Q&A session, and preview of Day 2 activities.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Summary</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Q&A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Day 2 Content -->
+            <div id="day2-content" class="tab-content">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold text-primary mb-4">
+                        Day 2: <span class="text-gradient">Application & Action</span>
+                    </h3>
+                    <p class="text-lg text-gray-600">
+                        Tuesday, July 16, 2025 | Practical application and future action planning
+                    </p>
+                </div>
+
+            <div class="space-y-6 reveal-element">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">9:00 - 9:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Day 2 Welcome & Energizer</h3>
+                            <p class="text-gray-600">Morning welcome and interactive energizer activity</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">9:15 - 10:45</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Cybersecurity & Digital Rights</h3>
+                            <p class="text-gray-600 mb-3">
+                                Exploring the intersection of cybersecurity policy, digital rights, and privacy
+                                protection in the context of Cambodia's evolving digital landscape.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> Dr. Amara Kim, Cybersecurity Policy Expert
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Cybersecurity</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Digital Rights</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Privacy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">10:45 - 11:00</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Morning refreshments and networking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">11:00 - 12:30</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Workshop: Policy Simulation Exercise</h3>
+                            <p class="text-gray-600 mb-3">
+                                Hands-on policy simulation where participants work in multistakeholder groups
+                                to address a real-world Internet governance challenge facing Cambodia.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Facilitator:</strong> Robert Johnson, Policy Simulation Expert
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Simulation</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Group Work</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">12:30 - 13:30</div>
+                            <div class="text-sm text-gray-500">60 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Lunch & Networking</h3>
+                            <p class="text-gray-600">Networking lunch with continued group discussions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">13:30 - 15:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Emerging Technologies & AI Governance</h3>
+                            <p class="text-gray-600 mb-3">
+                                Forward-looking session on emerging technologies, artificial intelligence governance,
+                                and preparing for future Internet governance challenges.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> Dr. Lisa Wong, AI Ethics & Governance Researcher
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">AI Governance</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Emerging Tech</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Future</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">15:00 - 15:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Final networking break</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">15:15 - 16:30</div>
+                            <div class="text-sm text-gray-500">75 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Action Planning & Next Steps</h3>
+                            <p class="text-gray-600 mb-3">
+                                Collaborative session to develop individual and organizational action plans,
+                                identify next steps, and plan for ongoing engagement in Internet governance.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Facilitator:</strong> APIGA Cambodia Team
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Action Planning</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Goal Setting</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Follow-up</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">16:30 - 17:00</div>
+                            <div class="text-sm text-gray-500">30 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Closing Ceremony & Certificates</h3>
+                            <p class="text-gray-600 mb-3">
+                                Program wrap-up, certificate presentation, group photo, and closing remarks
+                                celebrating the journey and future opportunities.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Certificates</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Celebration</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Alumni Network</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Encouragement -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Ready to Join the <span class="text-gradient">Next Cohort</span>?
+                </h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                    Don't miss this opportunity to become part of Cambodia's Internet governance community.
+                    Connect with experts, build your network, and contribute to Cambodia's digital future.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-secondary mb-2">2</div>
+                        <div class="text-sm text-gray-200">Intensive days of learning</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-accent mb-2">12</div>
+                        <div class="text-sm text-gray-200">Expert sessions & workshops</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-secondary mb-2">50+</div>
+                        <div class="text-sm text-gray-200">Professional connections</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="about.html" class="bg-secondary text-neutral px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300">
+                        Learn More About Program
+                    </a>
+                    <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Apply Now
+                    </a>
+                </div>
+
+                <p class="mt-6 text-gray-300 text-sm">
+                    Application deadline: May 15, 2025 | Limited to 50 participants
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Application Process
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join our next cohort and become part of Cambodia's digital leadership community.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 reveal-element">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-primary mb-8">Eligibility Criteria</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">Professional Background</h4>
+                                <p class="text-gray-600">
+                                    Professionals from government agencies, private sector companies, 
+                                    civil society organizations, or academic institutions with interest 
+                                    in Internet governance and digital policy.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-neutral font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">Experience Level</h4>
+                                <p class="text-gray-600">
+                                    Minimum 2 years of professional experience in relevant fields 
+                                    including telecommunications, IT, policy, law, or civil society 
+                                    engagement.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">Commitment</h4>
+                                <p class="text-gray-600">
+                                    Ability to commit to the full program duration including 
+                                    workshops, online sessions, and practical assignments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-primary mb-8">Important Dates</h3>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">Application Opening</h4>
+                                    <p class="text-sm text-gray-600">Next cohort applications</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-secondary">April 1, 2025</div>
+                                    <div class="text-sm text-gray-600">9:00 AM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">Application Deadline</h4>
+                                    <p class="text-sm text-gray-600">Final submission date</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-accent">May 15, 2025</div>
+                                    <div class="text-sm text-gray-600">11:59 PM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">Selection Announcement</h4>
+                                    <p class="text-sm text-gray-600">Selected participants</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-primary">June 1, 2025</div>
+                                    <div class="text-sm text-gray-600">5:00 PM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-semibold text-primary">Program Start</h4>
+                                    <p class="text-sm text-gray-600">First workshop session</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-secondary">July 15, 2025</div>
+                                    <div class="text-sm text-gray-600">9:00 AM</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <a href="contact.html" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 text-center block">
+                                Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="font-display font-bold text-3xl mb-4">
+                        APIGA <span class="text-gradient">Cambodia</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.082.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.749-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Programs</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Capacity Building</a></li>
+                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Policy Development</a></li>
+                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Youth Leadership</a></li>
+                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Digital Advocacy</a></li>
+                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Research & Analysis</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Partnership Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="organizing-committee.html" class="hover:text-secondary transition-colors">Our Team</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Resources</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Events</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 APIGA Cambodia. Advancing Internet Governance in Cambodia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz functionality
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizScore = 0;
+        
+        const quizQuestions = [
+            {
+                question: "What does ICANN stand for?",
+                options: [
+                    "International Council for Advanced Network Navigation",
+                    "Internet Corporation for Assigned Names and Numbers",
+                    "International Committee for Address and Name Navigation",
+                    "Internet Coordination Authority for Network Names"
+                ],
+                correct: 1,
+                explanation: "ICANN stands for Internet Corporation for Assigned Names and Numbers, responsible for coordinating the maintenance and procedures of several databases related to the namespaces and numerical spaces of the Internet."
+            },
+            {
+                question: "What is the multistakeholder model in Internet governance?",
+                options: [
+                    "A model where only governments make decisions",
+                    "A model where technical experts control the internet",
+                    "A collaborative approach involving governments, private sector, civil society, and technical community",
+                    "A system where corporations dominate internet policy"
+                ],
+                correct: 2,
+                explanation: "The multistakeholder model involves collaborative decision-making among governments, private sector, civil society, and technical community to ensure diverse perspectives in Internet governance."
+            },
+            {
+                question: "Which organization is responsible for Cambodia's .kh domain?",
+                options: [
+                    "Ministry of Posts and Telecommunications",
+                    "Telecommunication Regulator of Cambodia",
+                    "National Bank of Cambodia",
+                    "Ministry of Commerce"
+                ],
+                correct: 1,
+                explanation: "The Telecommunication Regulator of Cambodia (TRC) is responsible for managing Cambodia's country code top-level domain (.kh)."
+            },
+            {
+                question: "What is the main goal of Cambodia's Digital Government Policy 2022-2035?",
+                options: [
+                    "To eliminate all paper-based processes",
+                    "To transform public services through digital technology",
+                    "To create a government-only internet",
+                    "To replace all government employees with AI"
+                ],
+                correct: 1,
+                explanation: "Cambodia's Digital Government Policy 2022-2035 aims to transform public services through digital technology, enhancing efficiency, transparency, and citizen engagement."
+            },
+            {
+                question: "What percentage of Cambodia's population has internet access as of 2023?",
+                options: [
+                    "45%",
+                    "67.5%",
+                    "85%",
+                    "92%"
+                ],
+                correct: 1,
+                explanation: "According to 2023 reports, Cambodia has achieved 67.5% internet penetration, representing significant progress in digital inclusion."
+            }
+        ];
+
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMobileMenu();
+            initializeScrollAnimations();
+            initializePolicyTracker();
+        });
+
+        // Mobile menu functionality
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        }
+
+        // Scroll animations
+        function initializeScrollAnimations() {
+            const revealElements = document.querySelectorAll('.reveal-element');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutCubic'
+                        });
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+        }
+
+        // Quiz functions
+        function startQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizScore = 0;
+            
+            document.getElementById('quiz-start').classList.add('hidden');
+            document.getElementById('quiz-questions').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizQuestions[currentQuestion];
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const progressText = document.getElementById('quiz-progress');
+            const progressBar = document.getElementById('progress-bar');
+            
+            questionText.textContent = question.question;
+            progressText.textContent = `${currentQuestion + 1} / ${quizQuestions.length}`;
+            progressBar.style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option p-4 border border-gray-200 rounded-lg';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestion === 0;
+            document.getElementById('next-btn').disabled = true;
+        }
+
+        function selectOption(optionIndex) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            userAnswers[currentQuestion] = optionIndex;
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            // Calculate score
+            quizScore = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    quizScore++;
+                }
+            });
+            
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            
+            document.getElementById('quiz-questions').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            
+            document.getElementById('final-score').textContent = `${percentage}%`;
+            
+            // Generate recommendations
+            const recommendationsContainer = document.getElementById('recommendations');
+            let recommendations = [];
+            
+            if (percentage >= 80) {
+                recommendations.push("Excellent! You have strong knowledge of Internet governance concepts.");
+                recommendations.push("Consider applying for our advanced policy development track.");
+            } else if (percentage >= 60) {
+                recommendations.push("Good foundation! Focus on Cambodia-specific policies and frameworks.");
+                recommendations.push("Our foundation program would be perfect for you.");
+            } else {
+                recommendations.push("Great start! We recommend beginning with our comprehensive foundation program.");
+                recommendations.push("Focus on basic Internet governance principles and terminology.");
+            }
+            
+            recommendationsContainer.innerHTML = recommendations.map(rec => `<p>• ${rec}</p>`).join('');
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-start').classList.remove('hidden');
+        }
+
+        // Policy tracker functionality
+        function initializePolicyTracker() {
+            const chartContainer = document.getElementById('policy-tracker-chart');
+            if (!chartContainer) return;
+            
+            const chart = echarts.init(chartContainer);
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['Draft', 'Review', 'Implementation', 'Completed'],
+                    bottom: 10
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Cybersecurity Law', 'Data Protection', 'Digital Economy', 'Infrastructure', 'E-Governance', 'Digital Identity']
+                },
+                yAxis: {
+                    type: 'value',
+                    max: 100,
+                    axisLabel: {
+                        formatter: '{value}%'
+                    }
+                },
+                series: [
+                    {
+                        name: 'Draft',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [10, 15, 5, 20, 25, 30],
+                        itemStyle: { color: '#87CEEB' }
+                    },
+                    {
+                        name: 'Review',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [15, 25, 10, 15, 20, 25],
+                        itemStyle: { color: '#00BFFF' }
+                    },
+                    {
+                        name: 'Implementation',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [25, 30, 20, 25, 30, 20],
+                        itemStyle: { color: '#4169E1' }
+                    },
+                    {
+                        name: 'Completed',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [50, 30, 65, 40, 25, 25],
+                        itemStyle: { color: '#2C3E50' }
+                    }
+                ]
+            };
+            
+            chart.setOption(option);
+            
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.policy-filter');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    
+                    // Update active button
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-primary', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    
+                    // Filter policy cards
+                    const policyCards = document.querySelectorAll('.policy-card');
+                    policyCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Resize handler
+            window.addEventListener('resize', function() {
+                chart.resize();
+            });
+        }
+
+        // Tab switching function
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active', 'bg-primary', 'text-white');
+                button.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.add('active');
+
+            // Activate selected tab button
+            const activeButton = document.getElementById(tabName + '-tab');
+            activeButton.classList.add('active', 'bg-primary', 'text-white');
+            activeButton.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+
+            // Trigger animations for newly visible content
+            const revealElements = document.querySelectorAll(`#${tabName}-content .reveal-element`);
+            revealElements.forEach(element => {
+                anime({
+                    targets: element,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    easing: 'easeOutCubic'
+                });
+            });
+        }
+    </script>
+</body>
+</html>
