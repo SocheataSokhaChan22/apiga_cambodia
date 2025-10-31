@@ -4,17 +4,17 @@
     "description": "Asia Pacific Internet Governance Academy Cambodia - Building capacity in internet governance, digital policy, and multistakeholder engagement for Cambodia's digital future.",
     "icons": [
         {
-            "src": "/resources/logo.png",
+            "src": "/resources/apiga_logo.png",
             "sizes": "16x16",
             "type": "image/png"
         },
         {
-            "src": "/resources/logo.png",
+            "src": "/resources/apiga_logo.png",
             "sizes": "32x32",
             "type": "image/png"
         },
         {
-            "src": "/resources/logo.png",
+            "src": "/resources/apiga_logo.png",
             "sizes": "180x180",
             "type": "image/png"
         }

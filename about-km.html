@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>អំពី APIGA Cambodia - បង្កើតភាពជាមេដឹកនាំឌីជីថល</title>
+    <meta name="description" content="ស្វែងយល់អំពីបេសកកម្មរបស់ APIGA Cambodia ក្នុងការបង្កើតសមត្ថភាពអភិបាលកិច្ចអ៊ីនធឺណិតនៅកម្ពុជាតាមរយៈការអប់រំ ការបណ្តុះបណ្តាល និងការចូលរួមពហុភាគី។">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="resources/logo.png">
+    <link rel="apple-touch-icon" href="resources/logo.png">
+    <link rel="manifest" href="resources/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4169E1',
+                        'secondary': '#00BFFF',
+                        'accent': '#87CEEB',
+                        'neutral': '#2C3E50',
+                        'cream': '#FEFEFE'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Noto Sans Khmer', 'Inter', 'sans-serif'],
+                        'mono': ['Source Code Pro', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00BFFF, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .about-hero {
+            background: linear-gradient(135deg, #0F4C5C 0%, #2C3E50 100%);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-body bg-cream text-neutral">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index-km.html" class="flex items-center">
+                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-12 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="about-km.html" class="nav-link text-primary font-semibold">អំពីយើង</a>
+                        <a href="programs-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">កម្មវិធី</a>
+                        <a href="organizing-committee-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">គណៈកម្មាធិការរៀបចំ</a>
+                        <a href="contact-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">ទំនាក់ទំនង</a>
+                        <a href="about.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium ml-4 px-3 py-1 border-2 border-primary rounded flex items-center gap-2">🇬🇧 English</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-neutral hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about-km.html" class="block px-3 py-2 text-primary font-semibold">អំពីយើង</a>
+                <a href="programs-km.html" class="block px-3 py-2 text-neutral hover:text-primary">កម្មវិធី</a>
+                <a href="organizing-committee-km.html" class="block px-3 py-2 text-neutral hover:text-primary">គណៈកម្មាធិការរៀបចំ</a>
+                <a href="contact-km.html" class="block px-3 py-2 text-neutral hover:text-primary">ទំនាក់ទំនង</a>
+                <a href="about.html" class="block px-3 py-2 text-neutral hover:text-primary border-t border-gray-200 mt-2">🇬🇧 English</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-white">
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6">
+                    អំពី <span class="text-gradient">APIGA Cambodia</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl">
+                    បង្កើតសមត្ថភាពក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត និងគោលនយោបាយឌីជីថល ដើម្បីពង្រឹងដំណើរការផ្លាស់ប្តូរឌីជីថលរបស់កម្ពុជា។
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Program -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-element">
+                    <h2 class="font-display text-4xl font-bold text-primary mb-8">អំពីកម្មវិធី</h2>
+                    <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                        <p>
+                            បណ្ឌិតសភាអភិបាលកិច្ចអ៊ីនធឺណិតអាស៊ីប៉ាស៊ីហ្វិក (APIGA) កម្ពុជា គឺជាកម្មវិធីអភិវឌ្ឍសមត្ថភាពផ្តោតលើយុវជន ដែលរចនាឡើងដើម្បីពង្រឹងការយល់ដឹង និងការចូលរួមក្នុងអភិបាលកិច្ចអ៊ីនធឺណិតក្នុងចំណោមយុវជនកម្ពុជា។
+                        </p>
+                        <p>
+                            កម្មវិធីនេះគឺជាច្បាប់គំនិតផ្តួចផ្តើមក្នុងស្រុក ដែលបង្កើតឡើងដោយអតីតនិស្សិត APIGA និងក្រុមមេដឹកនាំយុវជនដែលមានចិត្តសាទរក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត រួមទាំងអ្នកចូលរួមចំណែកពី <a href="https://yigfkh.org/" target="_blank" class="text-primary font-semibold hover:underline">YIGF Cambodia</a>។ វាមានគោលបំណងផ្តល់សិទ្ធិអំណាចដល់យុវជនឱ្យចូលរួមយ៉ាងសកម្មក្នុងការរៀបចំអនាគតឌីជីថលរបស់កម្ពុជា។
+                        </p>
+                        <p>
+                            កម្មវិធីចំណាយពេល ២ថ្ងៃ ដែលធ្វើនៅកន្លែង ដែលមានវគ្គរៀបចំតាមអ៊ីនធឺណិតមុន នឹងប្រព្រឹត្តទៅនៅរាជធានីភ្នំពេញ កម្ពុជា ពីថ្ងៃទី ៦-៧ ខែធ្នូ ឆ្នាំ២០២៥។ APIGA Cambodia ត្រូវបានបង្កើតឡើងដោយផ្អែកលើបណ្ឌិតសភាអភិបាលកិច្ចអ៊ីនធឺណិតអាស៊ីប៉ាស៊ីហ្វិកដើម (APIGA) ដែលជាកម្មវិធីអភិវឌ្ឍសមត្ថភាពក្នុងតំបន់ដែលរៀបចំដោយ ICANN និង Korea Internet & Security Agency (KISA) ប៉ុន្តែធ្វើមូលដ្ឋានីយកម្មមាតិកា និងការពិភាក្សាដើម្បីដោះស្រាយបរិបទអភិបាលកិច្ចអ៊ីនធឺណិតជាក់លាក់របស់កម្ពុជា បញ្ហាប្រឈម និងឱកាស។
+                        </p>
+                        <p>
+                            ឆ្នាំនេះ <a href="https://opendevelopmentcambodia.net/" target="_blank" class="text-primary font-semibold hover:underline">Open Development Cambodia (ODC)</a> ដឹកនាំការរៀបចំកម្មវិធី APIGA Cambodia ដោយមានការគាំទ្រពីក្រសួងប្រៃសណីយ៍ និងទូរគមនាគមន៍ (MPTC), <a href="https://www.icann.org/" target="_blank" class="text-primary font-semibold hover:underline">ICANN</a>, <a href="https://www.internetsociety.org/" target="_blank" class="text-primary font-semibold hover:underline">Internet Society</a>, <a href="https://netmission.asia/" target="_blank" class="text-primary font-semibold hover:underline">NetMission</a>, និង <a href="https://www.dotasia.org/" target="_blank" class="text-primary font-semibold hover:underline">DotAsia</a>។
+                        </p>
+                    </div>
+                </div>
+                <div class="reveal-element">
+                    <img src="resources/about-bg.jpg" alt="APIGA Cambodia Program" class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    លក្ខណៈ<span class="text-gradient">សំខាន់</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    កម្មវិធីរបស់យើងរួមបញ្ចូលចំណេះដឹងទ្រឹស្តីជាមួយការអនុវត្តជាក់ស្តែងតាមរយៈ
+                    វិធីសាស្រ្តរៀនសូត្រចម្រុះ និងការណែនាំពីអ្នកជំនាញ។
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 reveal-element">
+                <div class="bg-white rounded-xl p-8 card-hover">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        🎯
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4 text-center">ការណែនាំពីអ្នកជំនាញ</h3>
+                    <p class="text-gray-600 text-center">
+                        រៀនពីអ្នកជំនាញអន្តរជាតិ និងតំបន់ក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត
+                        ការអភិវឌ្ឍគោលនយោបាយ និងការផ្លាស់ប្តូរឌីជីថល។
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 card-hover">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-neutral text-2xl mx-auto mb-6">
+                        🤝
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4 text-center">វិធីសាស្រ្តពហុភាគី</h3>
+                    <p class="text-gray-600 text-center">
+                        ចូលរួមជាមួយអ្នកចូលរួមពីរដ្ឋាភិបាល វិស័យឯកជន សង្គមស៊ីវិល
+                        និងបណ្ឌិតសភា ដើម្បីបង្កើតបណ្តាញសហការ។
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 card-hover">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        💡
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4 text-center">វគ្គបណ្តុះបណ្តាលជាក់ស្តែង</h3>
+                    <p class="text-gray-600 text-center">
+                        ចូលរួមក្នុងសកម្មភាពអនុវត្តដោយផ្ទាល់ សិក្សាករណីគំរូ និងការពិសោធន៍
+                        ដែលឆ្លុះបញ្ចាំងបញ្ហាប្រឈមគោលនយោបាយក្នុងពិភពលោកពិត។
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Benefits -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    អត្ថប្រយោជន៍<span class="text-gradient">កម្មវិធី</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    ចូលរួមបណ្តាញមេដឹកនាំឌីជីថលដែលកំពុងរីកចម្រើន និងទទួលបានជំនាញដើម្បីជំរុញ
+                    ការផ្លាស់ប្តូរវិជ្ជមានក្នុងការផ្លាស់ប្តូរឌីជីថលរបស់កម្ពុជា។
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 reveal-element">
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ជំនាញវិជ្ជាជីវៈប្រសើរឡើង</h4>
+                            <p class="text-gray-600">
+                                បង្កើតការយល់ដឹងទូលំទូលាយនូវគោលការណ៍អភិបាលកិច្ចអ៊ីនធឺណិត
+                                ក្របខ័ណ្ឌគោលនយោបាយ និងមូលដ្ឋានបច្ចេកទេសដែលពង្រឹងតម្លៃវិជ្ជាជីវៈរបស់អ្នក។
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-neutral font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ការបង្កើតបណ្តាញយុទ្ធសាស្ត្រ</h4>
+                            <p class="text-gray-600">
+                                ភ្ជាប់ទំនាក់ទំនងជាមួយវិជ្ជាជីវៈមានឥទ្ធិពលពីរដ្ឋាភិបាល វិស័យឯកជន
+                                និងសង្គមស៊ីវិល ដើម្បីបង្កើតទំនាក់ទំនងយូរអង្វែង និងឱកាសសហការ។
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ឱកាសក្នុងការប៉ះពាល់គោលនយោបាយ</h4>
+                            <p class="text-gray-600">
+                                ទទួលបានចំណេះដឹង និងទំនុកចិត្តក្នុងការចូលរួមចំណែកប្រកបដោយអត្ថន័យ
+                                ក្នុងការពិភាក្សា និងដំណើរការអនុវត្តគោលនយោបាយនៅក្នុងអង្គការ និងសហគមន៍របស់អ្នក។
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            🇰🇷
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ឱកាស Regional APIGA</h4>
+                            <p class="text-gray-600">
+                                អ្នកចូលរួមកំពូលទទួលបានការចូលរៀនដោយផ្ទាល់ដែលមានថវិកាគ្របដណ្តប់ទាំងស្រុងទៅកាន់ Regional APIGA 2026
+                                នៅប្រទេសកូរ៉េខាងត្បូង រួមទាំងការគ្របដណ្តប់ការចំណាយទាំងអស់ រួមទាំងសំបុត្រយន្តហោះ កន្លែងស្នាក់នៅ
+                                អាហារ និងការចំណាយកម្មវិធី។
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ធនធានការរៀនសូត្របន្ត</h4>
+                            <p class="text-gray-600">
+                                ទទួលបានសម្ភារៈអប់រំបន្ត ការធ្វើបច្ចុប្បន្នភាពគោលនយោបាយ និងព្រឹត្តិការណ៍ផ្តាច់មុខ
+                                សម្រាប់អតីតនិស្សិត APIGA ដើម្បីរក្សា និងពង្រីកជំនាញរបស់អ្នក។
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1 mr-4">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-primary mb-2">ការអភិវឌ្ឍភាពជាមេដឹកនាំ</h4>
+                            <p class="text-gray-600">
+                                បង្កើតទំនុកចិត្ត និងជំនាញដើម្បីក្លាយជាមេដឹកនាំគំនិត និងអ្នកតស៊ូមតិ
+                                សម្រាប់ការផ្លាស់ប្តូរឌីជីថល និងអភិបាលកិច្ចអ៊ីនធឺណិតនៅកម្ពុជា។
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Encouragement -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    ត្រៀមខ្លួនរៀបចំអនាគត<span class="text-gradient">ឌីជីថល</span>របស់កម្ពុជា?
+                </h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                    ចូលរួមជាមួយយើងក្នុងការបង្កើតកម្ពុជាឌីជីថលដែលមានការភ្ជាប់ទំនាក់ទំនង សុវត្ថិភាព និងរីកចម្រើនកាន់តែច្រើន។
+                    មិនថាអ្នកជាវិជ្ជាជីវៈមានបទពិសោធន៍ ឬមេដឹកនាំកំពុងរីកចម្រើន APIGA Cambodia ផ្តល់ជូននូវ
+                    ចំណេះដឹង បណ្តាញ និងឱកាសដើម្បីបង្កើតផលប៉ះពាល់យូរអង្វែង។
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="programs-km.html" class="bg-secondary text-neutral px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300">
+                        មើលកម្មវិធី
+                    </a>
+                    <a href="#application" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        ដាក់ពាក្យឥឡូវនេះ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="application" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-4">
+                    ដាក់ពាក្យឥឡូវនេះ
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    បំពេញទម្រង់ពាក្យខាងក្រោមដើម្បីចូលរួម APIGA Cambodia 2025
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-4 md:p-8 reveal-element">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv4wHkLnXzxRwpCMbURxljW5NnqSB9rod7SHo0-Mnd-CHzDQ/viewform?embedded=true"
+                        width="100%"
+                        height="2120"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                        class="w-full"
+                        style="border: none; display: block;">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="mb-4">
+                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-16 w-auto">
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        បង្កើតសមត្ថភាពក្នុងអភិបាលកិច្ចអ៊ីនធឺណិតតាមរយៈការរៀនសូត្រដោយផ្ទាល់ និងការចូលរួមពហុភាគី។
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">តំណរភ្ជាប់រហ័ស</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about-km.html" class="hover:text-secondary transition-colors">អំពីយើង</a></li>
+                        <li><a href="programs-km.html" class="hover:text-secondary transition-colors">កម្មវិធី</a></li>
+                        <li><a href="organizing-committee-km.html" class="hover:text-secondary transition-colors">គណៈកម្មាធិការរៀបចំ</a></li>
+                        <li><a href="contact-km.html" class="hover:text-secondary transition-colors">ទំនាក់ទំនង</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">ព័ត៌មានកម្មវិធី</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">៦-៧ ធ្នូ ២០២៥</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">ភ្នំពេញ កម្ពុជា</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">២០-៣០ អ្នកចូលរួម</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">ឥតគិតថ្លៃ</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; ២០២៥ APIGA Cambodia។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        duration: 800,
+                        easing: 'easeOutQuart'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-element').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>

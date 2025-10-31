@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact APIGA Cambodia - Get In Touch</title>
-    <meta name="description" content="Contact APIGA Cambodia for program inquiries, partnerships, and collaboration opportunities in Internet governance and digital policy.">
+    <title>ទំនាក់ទំនង APIGA Cambodia</title>
+    <meta name="description" content="ទាក់ទង APIGA Cambodia សម្រាប់សំណួរកម្មវិធី ភាពជាដៃគូ និងឱកាសសហការក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត និងគោលនយោបាយឌីជីថល។">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="resources/logo.png">
@@ -14,15 +14,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    
     <!-- Core Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -38,78 +37,56 @@
                     },
                     fontFamily: {
                         'display': ['Playfair Display', 'serif'],
-                        'body': ['Inter', 'sans-serif'],
+                        'body': ['Noto Sans Khmer', 'Inter', 'sans-serif'],
                         'mono': ['Source Code Pro', 'monospace']
                     }
                 }
             }
         }
     </script>
-    
+
     <style>
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
         .text-gradient {
             background: linear-gradient(135deg, #00BFFF, #87CEEB);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-blur {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-        }
-        
+
         .reveal-element {
             opacity: 0;
             transform: translateY(30px);
         }
-        
+
         .contact-hero {
             background: linear-gradient(135deg, #4169E1 0%, #2C3E50 100%);
             position: relative;
             overflow: hidden;
         }
-        
+
         .breadcrumb a {
             color: #6B7280;
             text-decoration: none;
         }
-        
+
         .breadcrumb a:hover {
             color: #4169E1;
         }
-        
-        .form-step {
-            display: none;
-        }
-        
-        .form-step.active {
-            display: block;
-        }
-        
-        .step-indicator {
-            transition: all 0.3s ease;
-        }
-        
-        .step-indicator.active {
-            background-color: #4169E1;
-            color: white;
-        }
-        
-        .step-indicator.completed {
-            background-color: #10B981;
-            color: white;
-        }
-        
+
         #map {
             height: 300px;
             min-height: 250px;
@@ -128,22 +105,22 @@
                 height: 450px;
             }
         }
-        
+
         .faq-item {
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .faq-item:hover {
             background-color: #F9FAFB;
         }
-        
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
-        
+
         .faq-answer.open {
             max-height: 200px;
         }
@@ -155,17 +132,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center">
+                    <a href="index-km.html" class="flex items-center">
                         <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-12 w-auto">
                     </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="about.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">About</a>
-                        <a href="programs.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">Programs</a>
-                        <a href="organizing-committee.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">Organizing Committee</a>
-                        <a href="contact.html" class="nav-link text-primary font-semibold">Contact</a>
-                        <a href="contact-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium ml-4 px-3 py-1 border-2 border-primary rounded flex items-center gap-2">🇰🇭 ភាសាខ្មែរ</a>
+                        <a href="about-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">អំពីយើង</a>
+                        <a href="programs-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">កម្មវិធី</a>
+                        <a href="organizing-committee-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">គណៈកម្មាធិការរៀបចំ</a>
+                        <a href="contact-km.html" class="nav-link text-primary font-semibold">ទំនាក់ទំនង</a>
+                        <a href="contact.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium ml-4 px-3 py-1 border-2 border-primary rounded flex items-center gap-2">🇬🇧 English</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -180,28 +157,28 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="about.html" class="block px-3 py-2 text-neutral hover:text-primary">About</a>
-                <a href="programs.html" class="block px-3 py-2 text-neutral hover:text-primary">Programs</a>
-                <a href="organizing-committee.html" class="block px-3 py-2 text-neutral hover:text-primary">Organizing Committee</a>
-                <a href="contact.html" class="block px-3 py-2 text-primary font-semibold">Contact</a>
-                <a href="contact-km.html" class="block px-3 py-2 text-neutral hover:text-primary border-t border-gray-200 mt-2">🇰🇭 ភាសាខ្មែរ</a>
+                <a href="about-km.html" class="block px-3 py-2 text-neutral hover:text-primary">អំពីយើង</a>
+                <a href="programs-km.html" class="block px-3 py-2 text-neutral hover:text-primary">កម្មវិធី</a>
+                <a href="organizing-committee-km.html" class="block px-3 py-2 text-neutral hover:text-primary">គណៈកម្មាធិការរៀបចំ</a>
+                <a href="contact-km.html" class="block px-3 py-2 text-primary font-semibold">ទំនាក់ទំនង</a>
+                <a href="contact.html" class="block px-3 py-2 text-neutral hover:text-primary border-t border-gray-200 mt-2">🇬🇧 English</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
+    <!-- Hero Section -->
     <section class="contact-hero pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-white">
                 <nav class="breadcrumb mb-8">
-                    <a href="index.html">Home</a> / <span class="text-white">Contact</span>
+                    <a href="index-km.html">ទំព័រដើម</a> / <span class="text-white">ទំនាក់ទំនង</span>
                 </nav>
                 <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6">
-                    Get In <span class="text-gradient">Touch</span>
+                    ទាក់ទង<span class="text-gradient">យើង</span>
                 </h1>
                 <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl">
-                    Connect with us for program inquiries, partnerships, and collaboration opportunities
-                    in Internet governance and digital policy.
+                    ភ្ជាប់ទំនាក់ទំនងជាមួយយើងសម្រាប់សំណួរកម្មវិធី ភាពជាដៃគូ និងឱកាសសហការ
+                    ក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត និងគោលនយោបាយឌីជីថល។
                 </p>
             </div>
         </div>
@@ -215,12 +192,12 @@
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
                         📍
                     </div>
-                    <h3 class="font-bold text-xl text-primary mb-4">Address</h3>
+                    <h3 class="font-bold text-xl text-primary mb-4">អាសយដ្ឋាន</h3>
                     <p class="text-gray-600">
                         Open Development Cambodia<br>
-                        #23B, Street 606, Sangkat Boeng Kak Ti Pir<br>
-                        Khan Tuol Kouk, Phnom Penh, Cambodia<br>
-                        <span class="text-sm">Tel: +855 23 902 196</span>
+                        #23B, ផ្លូវ ៦០៦, សង្កាត់បឹងកក់ទីពីរ<br>
+                        ខណ្ឌទួលគោក ភ្នំពេញ កម្ពុជា<br>
+                        <span class="text-sm">ទូរស័ព្ទ: +855 23 902 196</span>
                     </p>
                 </div>
 
@@ -228,10 +205,10 @@
                     <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-neutral text-2xl mx-auto mb-6">
                         📧
                     </div>
-                    <h3 class="font-bold text-xl text-primary mb-4">Email</h3>
+                    <h3 class="font-bold text-xl text-primary mb-4">អ៊ីម៉ែល</h3>
                     <p class="text-gray-600">
                         info@apigacambodia.org<br>
-                        <span class="text-sm">Response within 24 hours</span>
+                        <span class="text-sm">ឆ្លើយតបក្នុងរយៈពេល ២៤ ម៉ោង</span>
                     </p>
                 </div>
             </div>
@@ -244,22 +221,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-element">
                 <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
-                    Find Us
+                    ស្វែងរកយើង
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our programs are held at various locations across Phnom Penh. 
-                    Contact us for specific venue details for upcoming sessions.
+                    កម្មវិធីរបស់យើងត្រូវបានរៀបចំនៅកន្លែងផ្សេងៗនៅទូទាំងភ្នំពេញ។
+                    ទាក់ទងមកយើងសម្រាប់ព័ត៌មានលម្អិតអំពីទីកន្លែងជាក់លាក់សម្រាប់វគ្គខាងមុខ។
                 </p>
             </div>
-            
+
             <div class="space-y-12">
                 <!-- Map Section -->
                 <div class="reveal-element">
-                    <h3 class="font-display text-2xl md:text-3xl font-bold text-primary mb-6 text-center">Interactive Map</h3>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold text-primary mb-6 text-center">ផែនទីអន្តរកម្ម</h3>
                     <div class="bg-gray-100 rounded-xl p-4">
                         <div id="map" class="shadow-lg"></div>
                         <p class="text-center text-sm text-gray-500 mt-4">
-                            📍 Open Development Cambodia, #23B Street 606, Khan Tuol Kouk, Phnom Penh
+                            📍 Open Development Cambodia, #23B ផ្លូវ ៦០៦, ខណ្ឌទួលគោក ភ្នំពេញ
                         </p>
                     </div>
                 </div>
@@ -273,90 +250,86 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-element">
                 <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
-                    Frequently Asked Questions
+                    សំណួរដែលសួរញឹកញាប់
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Find quick answers to common questions about our programs and organization.
+                    ស្វែងរកចម្លើយរហ័សចំពោះសំណួរទូទៅអំពីកម្មវិធី និងអង្គការរបស់យើង។
                 </p>
             </div>
-            
+
             <div class="space-y-4 reveal-element">
                 <div class="faq-item bg-gray-50 rounded-lg p-6">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-lg text-primary">What is the duration of APIGA Cambodia programs?</h3>
+                        <h3 class="font-semibold text-lg text-primary">រយៈពេលកម្មវិធី APIGA Cambodia គឺប៉ុន្មាន?</h3>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     <div class="faq-answer mt-4">
                         <p class="text-gray-600">
-                            Our flagship capacity building program typically runs for 6-8 weeks, 
-                            including intensive workshops, online sessions, and practical assignments. 
-                            Shorter specialized workshops may run for 2-3 days.
+                            កម្មវិធីបង្កើតសមត្ថភាពសំខាន់របស់យើងជាធម្មតាដំណើរការរយៈពេល ៦-៨ សប្តាហ៍
+                            រួមទាំងវគ្គបណ្តុះបណ្តាលសកម្ម វគ្គអនឡាញ និងកិច្ចការអនុវត្តជាក់ស្តែង។
+                            វគ្គបណ្តុះបណ្តាលឯកទេសខ្លីៗអាចដំណើរការរយៈពេល ២-៣ ថ្ងៃ។
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item bg-gray-50 rounded-lg p-6">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-lg text-primary">Is there a cost to participate in APIGA programs?</h3>
+                        <h3 class="font-semibold text-lg text-primary">តើមានថ្លៃចំណាយក្នុងការចូលរួមកម្មវិធី APIGA ទេ?</h3>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     <div class="faq-answer mt-4">
                         <p class="text-gray-600">
-                            APIGA Cambodia programs are offered free of charge to selected participants 
-                            thanks to support from ICANN and our partner organizations. This includes 
-                            training materials, venue costs, and refreshments.
+                            កម្មវិធី APIGA Cambodia ត្រូវបានផ្តល់ជូនដោយឥតគិតថ្លៃដល់អ្នកចូលរួមដែលបានជ្រើសរើស
+                            ដោយសារការគាំទ្រពី ICANN និងអង្គការដៃគូរបស់យើង។ នេះរួមបញ្ចូលសម្ភារៈបណ្តុះបណ្តាល ថ្លៃសោធន កន្លែងរៀន និងភេសជ្ជៈស្រាល។
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item bg-gray-50 rounded-lg p-6">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-lg text-primary">What are the language requirements?</h3>
+                        <h3 class="font-semibold text-lg text-primary">តើតម្រូវការភាសាគឺយ៉ាងណា?</h3>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     <div class="faq-answer mt-4">
                         <p class="text-gray-600">
-                            All programs are conducted in English and Khmer. Participants should have 
-                            proficiency in at least one of these languages. Translation support is 
-                            available for key sessions when needed.
+                            កម្មវិធីទាំងអស់ត្រូវបានធ្វើឡើងជាភាសាអង់គ្លេស និងខ្មែរ។ អ្នកចូលរួមគួរតែមានជំនាញ
+                            យ៉ាងហោចណាស់មួយនៃភាសាទាំងនេះ។ ការបកប្រែត្រូវបានផ្តល់ជូនសម្រាប់វគ្គសំខាន់ៗនៅពេលត្រូវការ។
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item bg-gray-50 rounded-lg p-6">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-lg text-primary">Do you provide certificates?</h3>
+                        <h3 class="font-semibold text-lg text-primary">តើអ្នកផ្តល់វិញ្ញាបនបត្រទេ?</h3>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     <div class="faq-answer mt-4">
                         <p class="text-gray-600">
-                            Yes, participants who successfully complete our programs receive certificates
-                            of completion.
+                            បាទ/ចាស អ្នកចូលរួមដែលបញ្ចប់កម្មវិធីដោយជោគជ័យនឹងទទួលបានវិញ្ញាបនបត្របញ្ចប់។
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item bg-gray-50 rounded-lg p-6">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-lg text-primary">How can organizations partner with APIGA Cambodia?</h3>
+                        <h3 class="font-semibold text-lg text-primary">តើអង្គការអាចក្លាយជាដៃគូជាមួយ APIGA Cambodia យ៉ាងដូចម្តេច?</h3>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     <div class="faq-answer mt-4">
                         <p class="text-gray-600">
-                            We welcome partnerships with organizations that share our mission. 
-                            Partners can contribute through venue provision, expert speakers, 
-                            funding support, or co-developing specialized content. Contact us 
-                            to discuss collaboration opportunities.
+                            យើងស្វាគមន៍ភាពជាដៃគូជាមួយអង្គការដែលចែករំលែកបេសកកម្មរបស់យើង។
+                            ដៃគូអាចចូលរួមចំណែកតាមរយៈការផ្តល់កន្លែង វាគ្មិនជំនាញ ការគាំទ្រហិរញ្ញវត្ថុ
+                            ឬការអភិវឌ្ឍមាតិកាឯកទេសរួមគ្នា។ ទាក់ទងមកយើងដើម្បីពិភាក្សាអំពីឱកាសសហការ។
                         </p>
                     </div>
                 </div>
@@ -373,7 +346,7 @@
                         <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-16 w-auto">
                     </div>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Building capacity in Internet governance through hands-on learning and multistakeholder engagement.
+                        បង្កើតសមត្ថភាពក្នុងអភិបាលកិច្ចអ៊ីនធឺណិតតាមរយៈការរៀនសូត្រដោយផ្ទាល់ និងការចូលរួមពហុភាគី។
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
@@ -383,7 +356,7 @@
                         </a>
                         <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
                             </svg>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
@@ -394,61 +367,58 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <h3 class="font-semibold text-lg mb-4">តំណរភ្ជាប់រហ័ស</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
-                        <li><a href="programs.html" class="hover:text-secondary transition-colors">Programs</a></li>
-                        <li><a href="organizing-committee.html" class="hover:text-secondary transition-colors">Organizing Committee</a></li>
-                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="about-km.html" class="hover:text-secondary transition-colors">អំពីយើង</a></li>
+                        <li><a href="programs-km.html" class="hover:text-secondary transition-colors">កម្មវិធី</a></li>
+                        <li><a href="organizing-committee-km.html" class="hover:text-secondary transition-colors">គណៈកម្មាធិការរៀបចំ</a></li>
+                        <li><a href="contact-km.html" class="hover:text-secondary transition-colors">ទំនាក់ទំនង</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-4">Program Info</h3>
+                    <h3 class="font-semibold text-lg mb-4">ព័ត៌មានកម្មវិធី</h3>
                     <ul class="space-y-3 text-gray-300">
                         <li class="flex items-center">
                             <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                             </svg>
-                            <span class="text-sm">December 6-7, 2025</span>
+                            <span class="text-sm">៦-៧ ធ្នូ ២០២៥</span>
                         </li>
                         <li class="flex items-center">
                             <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                             </svg>
-                            <span class="text-sm">Phnom Penh, Cambodia</span>
+                            <span class="text-sm">ភ្នំពេញ កម្ពុជា</span>
                         </li>
                         <li class="flex items-center">
                             <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
                             </svg>
-                            <span class="text-sm">20-30 Participants</span>
+                            <span class="text-sm">២០-៣០ អ្នកចូលរួម</span>
                         </li>
                         <li class="flex items-center">
                             <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                             </svg>
-                            <span class="text-sm">Free of Charge</span>
+                            <span class="text-sm">ឥតគិតថ្លៃ</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 APIGA Cambodia. All rights reserved.</p>
+                <p>&copy; ២០២៥ APIGA Cambodia។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Global variables
-        let currentStep = 1;
-        let selectedInquiryType = '';
         let map;
 
         // Initialize page functionality
         document.addEventListener('DOMContentLoaded', function() {
             initializeMobileMenu();
             initializeScrollAnimations();
-            initializeContactForm();
             initializeMap();
             initializeFAQ();
         });
@@ -457,7 +427,7 @@
         function initializeMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
@@ -468,7 +438,7 @@
         // Scroll animations
         function initializeScrollAnimations() {
             const revealElements = document.querySelectorAll('.reveal-element');
-            
+
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -486,93 +456,10 @@
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             });
-            
+
             revealElements.forEach(element => {
                 revealObserver.observe(element);
             });
-        }
-
-        // Contact form functionality
-        function initializeContactForm() {
-            // Inquiry type selection
-            const inquiryTypes = document.querySelectorAll('.inquiry-type');
-            inquiryTypes.forEach(type => {
-                type.addEventListener('click', function() {
-                    inquiryTypes.forEach(t => t.classList.remove('border-primary', 'bg-primary', 'text-white'));
-                    this.classList.add('border-primary', 'bg-primary', 'text-white');
-
-                    selectedInquiryType = this.dataset.type;
-                    const nextBtn = document.getElementById('step-1-next');
-                    if (nextBtn) nextBtn.disabled = false;
-                });
-            });
-
-            // Form submission (check if exists first)
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    submitForm();
-                });
-            }
-
-            // Newsletter form (if exists)
-            const newsletterForm = document.getElementById('newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    subscribeNewsletter();
-                });
-            }
-        }
-
-        // Multi-step form navigation
-        function nextStep() {
-            if (validateCurrentStep()) {
-                currentStep++;
-                updateFormStep();
-            }
-        }
-
-        function prevStep() {
-            currentStep--;
-            updateFormStep();
-        }
-
-        function updateFormStep() {
-            // Hide all steps
-            document.querySelectorAll('.form-step').forEach(step => {
-                step.classList.remove('active');
-            });
-            
-            // Show current step
-            document.getElementById(`step-${currentStep}`).classList.add('active');
-            
-            // Update step indicators
-            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
-                indicator.classList.remove('active', 'completed');
-                if (index + 1 < currentStep) {
-                    indicator.classList.add('completed');
-                } else if (index + 1 === currentStep) {
-                    indicator.classList.add('active');
-                }
-            });
-        }
-
-        function validateCurrentStep() {
-            if (currentStep === 1) {
-                return selectedInquiryType !== '';
-            } else if (currentStep === 2) {
-                const firstName = document.getElementById('firstName').value.trim();
-                const lastName = document.getElementById('lastName').value.trim();
-                const email = document.getElementById('email').value.trim();
-                return firstName && lastName && email;
-            } else if (currentStep === 3) {
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-                return subject && message;
-            }
-            return true;
         }
 
         // Initialize map
@@ -596,7 +483,7 @@
                 // Add marker for Open Development Cambodia
                 L.marker([11.5671, 104.8996])
                     .addTo(map)
-                    .bindPopup('<div style="text-align: center;"><b>APIGA Cambodia</b><br>Open Development Cambodia<br>#23B, Street 606, Sangkat Boeng Kak Ti Pir<br>Khan Tuol Kouk, Phnom Penh<br><small>Contact: +855 23 902 196</small></div>')
+                    .bindPopup('<div style="text-align: center;"><b>APIGA Cambodia</b><br>Open Development Cambodia<br>#23B, ផ្លូវ ៦០៦, សង្កាត់បឹងកក់ទីពីរ<br>ខណ្ឌទួលគោក ភ្នំពេញ<br><small>ទំនាក់ទំនង: +855 23 902 196</small></div>')
                     .openPopup();
 
                 // Ensure map is properly sized
@@ -609,55 +496,7 @@
                 // Fallback: show a static message
                 const mapElement = document.getElementById('map');
                 if (mapElement) {
-                    mapElement.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background-color: #f3f4f6; border-radius: 1rem; color: #6b7280;"><p>Map loading... Please ensure you have an internet connection.</p></div>';
-                }
-            }
-        }
-
-        // Form submission
-        function submitForm() {
-            // Collect form data
-            const formData = {
-                inquiryType: selectedInquiryType,
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                organization: document.getElementById('organization').value,
-                role: document.getElementById('role').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value,
-                contactMethod: document.querySelector('input[name="contactMethod"]:checked').value,
-                newsletter: document.querySelector('input[name="newsletter"]').checked
-            };
-            
-            // Show success message
-            showSuccessMessage('Thank you for your message! We will get back to you within 24 hours.');
-            
-            // Reset form
-            setTimeout(() => {
-                document.getElementById('contact-form').reset();
-                currentStep = 1;
-                selectedInquiryType = '';
-                updateFormStep();
-                
-                // Reset inquiry type selection
-                document.querySelectorAll('.inquiry-type').forEach(type => {
-                    type.classList.remove('border-primary', 'bg-primary', 'text-white');
-                });
-                document.getElementById('step-1-next').disabled = true;
-            }, 2000);
-        }
-
-        // Newsletter subscription
-        function subscribeNewsletter() {
-            const emailInput = document.getElementById('newsletter-email');
-            const form = document.getElementById('newsletter-form');
-            if (emailInput && form) {
-                const email = emailInput.value;
-                if (email) {
-                    showSuccessMessage('Thank you for subscribing to our newsletter!');
-                    form.reset();
+                    mapElement.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background-color: #f3f4f6; border-radius: 1rem; color: #6b7280;"><p>កំពុងផ្ទុកផែនទី... សូមប្រាកដថាអ្នកមានការភ្ជាប់អ៊ីនធឺណិត។</p></div>';
                 }
             }
         }
@@ -669,7 +508,7 @@
                 item.addEventListener('click', function() {
                     const answer = this.querySelector('.faq-answer');
                     const icon = this.querySelector('svg');
-                    
+
                     // Close all other FAQ items
                     faqItems.forEach(otherItem => {
                         if (otherItem !== this) {
@@ -677,7 +516,7 @@
                             otherItem.querySelector('svg').style.transform = 'rotate(0deg)';
                         }
                     });
-                    
+
                     // Toggle current item
                     answer.classList.toggle('open');
                     if (answer.classList.contains('open')) {
@@ -687,38 +526,6 @@
                     }
                 });
             });
-        }
-
-        // Success message
-        function showSuccessMessage(message) {
-            const successDiv = document.createElement('div');
-            successDiv.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50';
-            successDiv.textContent = message;
-            
-            document.body.appendChild(successDiv);
-            
-            // Animate in
-            anime({
-                targets: successDiv,
-                translateX: [300, 0],
-                opacity: [0, 1],
-                duration: 500,
-                easing: 'easeOutCubic'
-            });
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                anime({
-                    targets: successDiv,
-                    translateX: [0, 300],
-                    opacity: [1, 0],
-                    duration: 500,
-                    easing: 'easeInCubic',
-                    complete: () => {
-                        document.body.removeChild(successDiv);
-                    }
-                });
-            }, 3000);
         }
     </script>
 

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កម្មវិធី - APIGA Cambodia</title>
+    <meta name="description" content="ស្វែងរកកម្មវិធីទូលំទូលាយរបស់ APIGA Cambodia ក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត ការបង្កើតសមត្ថភាព និងការអភិវឌ្ឍគោលនយោបាយឌីជីថល។">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="resources/logo.png">
+    <link rel="apple-touch-icon" href="resources/logo.png">
+    <link rel="manifest" href="resources/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4169E1',
+                        'secondary': '#00BFFF',
+                        'accent': '#87CEEB',
+                        'neutral': '#2C3E50',
+                        'cream': '#FEFEFE'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Noto Sans Khmer', 'Inter', 'sans-serif'],
+                        'mono': ['Source Code Pro', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00BFFF, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .programs-hero {
+            background: linear-gradient(135deg, #4169E1 0%, #2C3E50 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .breadcrumb a {
+            color: #D1D5DB;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #87CEEB;
+        }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: #4169E1;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-body bg-cream text-neutral">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index-km.html" class="flex items-center">
+                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-12 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="about-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">អំពីយើង</a>
+                        <a href="programs-km.html" class="nav-link text-primary font-semibold">កម្មវិធី</a>
+                        <a href="organizing-committee-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">គណៈកម្មាធិការរៀបចំ</a>
+                        <a href="contact-km.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium">ទំនាក់ទំនង</a>
+                        <a href="programs.html" class="nav-link text-neutral hover:text-primary transition-colors duration-300 font-medium ml-4 px-3 py-1 border-2 border-primary rounded flex items-center gap-2">🇬🇧 English</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-neutral hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about-km.html" class="block px-3 py-2 text-neutral hover:text-primary">អំពីយើង</a>
+                <a href="programs-km.html" class="block px-3 py-2 text-primary font-semibold">កម្មវិធី</a>
+                <a href="organizing-committee-km.html" class="block px-3 py-2 text-neutral hover:text-primary">គណៈកម្មាធិការរៀបចំ</a>
+                <a href="contact-km.html" class="block px-3 py-2 text-neutral hover:text-primary">ទំនាក់ទំនង</a>
+                <a href="programs.html" class="block px-3 py-2 text-neutral hover:text-primary border-t border-gray-200 mt-2">🇬🇧 English</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="programs-hero pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-white">
+                <nav class="breadcrumb mb-8">
+                    <a href="index-km.html">ទំព័រដើម</a> / <span class="text-white">កម្មវិធី</span>
+                </nav>
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6">
+                    កាលវិភាគ<span class="text-gradient">កម្មវិធី</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl">
+                    កាលវិភាគលម្អិត ២ថ្ងៃ ដែលមានវាគ្មិនអ្នកជំនាញ វគ្គបណ្តុះបណ្តាលអន្តរកម្ម
+                    និងបទពិសោធន៍រៀនសូត្រដោយផ្ទាល់នៅក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត។
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Agenda with Tabs -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    កាលវិភាគ<span class="text-gradient">កម្មវិធី</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    កាលវិភាគលម្អិតសម្រាប់កម្មវិធីអភិបាលកិច្ចអ៊ីនធឺណិត ២ថ្ងៃរបស់យើង
+                </p>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex justify-center mb-12 reveal-element">
+                <div class="bg-white rounded-xl p-2 shadow-lg">
+                    <button onclick="switchTab('day1')" class="tab-button active bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg mr-2" id="day1-tab">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">📅</span>
+                            <div class="text-left">
+                                <div>ថ្ងៃទី១</div>
+                                <div class="text-sm opacity-90">មូលដ្ឋាន និងក្របខ័ណ្ឌ</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button onclick="switchTab('day2')" class="tab-button bg-gray-100 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-200" id="day2-tab">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">🚀</span>
+                            <div class="text-left">
+                                <div>ថ្ងៃទី២</div>
+                                <div class="text-sm opacity-70">ការអនុវត្ត និងសកម្មភាព</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Day 1 Content -->
+            <div id="day1-content" class="tab-content active">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold text-primary mb-4">
+                        ថ្ងៃទី១: <span class="text-gradient">មូលដ្ឋាន និងក្របខ័ណ្ឌ</span>
+                    </h3>
+                    <p class="text-lg text-gray-600">
+                        សៅរ៍ ៦ ធ្នូ ២០២៥ | បង្កើតការយល់ដឹងមូលដ្ឋានអំពីអភិបាលកិច្ចអ៊ីនធឺណិត
+                    </p>
+                </div>
+
+            <div class="space-y-6 reveal-element">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៨:៣០ - ៩:០០</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ចុះឈ្មោះ និងកាហ្វេស្វាគមន៍</h3>
+                            <p class="text-gray-600 mb-3">
+                                អ្នកចូលរួមធ្វើការចុះឈ្មោះ ទទួលឯកសារសម្ភារៈ និងបណ្តាញជាមួយកាហ្វេមុនពេលកម្មវិធីចាប់ផ្តើម។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នករៀបចំ:</strong> OC, ODC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">ចុះឈ្មោះ</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">បណ្តាញ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៩:០០ - ៩:៣០</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្តីស្វាគមន៍</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការស្វាគមន៍ដោយអង្គការម្ចាស់ផ្ទះ (ODC, OC និង ICANN)។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">វាគ្មិន:</strong> OC, ODC, ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">បើក</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ស្វាគមន៍</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៩:៣០ - ៩:៥០</div>
+                            <div class="text-sm text-gray-500">២០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ការណែនាំអំពីអភិបាលកិច្ចអ៊ីនធឺណិត</h3>
+                            <p class="text-gray-600 mb-3">
+                                ទិដ្ឋភាពសង្ខេបនៃអភិបាលកិច្ចអ៊ីនធឺណិត (IG) ម៉ូដែលពហុភាគី និងតួនាទីស្ថាប័នសកល/តំបន់សំខាន់ៗ។ វគ្គនេះក៏នឹងផ្តល់ទិដ្ឋភាពសង្ខេបនៃស្រទាប់ផ្សេងៗនៃអភិបាលកិច្ចឌីជីថល។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ការណែនាំ</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ពហុភាគី</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៩:៥០ - ១០:២០</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ១: ពិភពលោកនៃអភិបាលកិច្ចអ៊ីនធឺណិត</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការណែនាំទិដ្ឋភាពសង្ខេបទូលំទូលាយអំពីភាគីពាក់ព័ន្ធ ដំណើរការ និងវេទិកាសំខាន់ៗក្នុងអភិបាលកិច្ចអ៊ីនធឺណិតសកល។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">ម៉ូឌុល</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">អភិបាលកិច្ច</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១០:២០ - ១០:៣០</div>
+                            <div class="text-sm text-gray-500">១០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្រាក</h3>
+                            <p class="text-gray-600">សម្រាកខ្លី និងបណ្តាញ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១០:៣០ - ១១:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ២: ការណែនាំអំពី ICANN</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការយល់ដឹងស៊ីជម្រៅអំពីបេសកកម្ម រចនាសម្ព័ន្ធ និងតួនាទីរបស់ ICANN ក្នុងការសម្របសម្រួលប្រព័ន្ធឈ្មោះដែនអ៊ីនធឺណិត។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ស្ថាប័ន</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១១:៣០ - ១២:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៣: ប្រព័ន្ធឈ្មោះដែន (DNS)</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការស្វែងយល់បច្ចេកទេសអំពី DNS របៀបដែលវាដំណើរការ និងសារៈសំខាន់របស់វាសម្រាប់ការដំណើរការអ៊ីនធឺណិត។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">បច្ចេកទេស</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">DNS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១២:៣០ - ១៣:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">អាហារថ្ងៃត្រង់</h3>
+                            <p class="text-gray-600">អាហារថ្ងៃត្រង់ និងឱកាសបណ្តាញអនឋរការី</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៣:៣០ - ១៤:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៤: ការណែនាំអំពី Internet Society</h3>
+                            <p class="text-gray-600 mb-3">
+                                ស្វែងយល់អំពីបេសកកម្ម គំនិតផ្តួចផ្តើម និងផែនការសកម្មភាពរបស់ Internet Society សម្រាប់អ៊ីនធឺណិតបើកចំហ និងសកលដែលអាចទុកចិត្តបាន។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> Internet Society
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Internet Society</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">ស្ថាប័ន</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៤:៣០ - ១៥:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៥: (នឹងត្រូវកំណត់)</h3>
+                            <p class="text-gray-600 mb-3">
+                                ប្រធានបទពិសេសដែលនឹងត្រូវប្រកាសជាមុន។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> នឹងត្រូវប្រកាស
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">ម៉ូឌុល</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៥:៣០ - ១៥:៤៥</div>
+                            <div class="text-sm text-gray-500">១៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្រាក</h3>
+                            <p class="text-gray-600">សម្រាករសៀល និងបណ្តាញ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៥:៤៥ - ១៦:១៥</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៦: ការណែនាំអំពី APrIGF</h3>
+                            <p class="text-gray-600 mb-3">
+                                ស្វែងយល់អំពី Asia Pacific Regional Internet Governance Forum និងតួនាទីរបស់វាក្នុងការបង្កើតគោលនយោបាយអ៊ីនធឺណិតតំបន់។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> APrIGF
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">APrIGF</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">តំបន់</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៦:១៥ - ១៦:៤៥</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៧: ការយល់ដឹងអំពីលំហលើអ៊ីនធឺណិត និងសិទ្ធិឌីជីថល</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការស្វែងយល់អំពីលំហការពារសិទ្ធិឌីជីថល សេរីភាពអនឡាញ និងភាពឯកជនលើអ៊ីនធឺណិត។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> OC, ODC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">សិទ្ធិឌីជីថល</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">លំហលើអ៊ីនធឺណិត</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៦:៤៥ - ១៧:០០</div>
+                            <div class="text-sm text-gray-500">១៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្រាក</h3>
+                            <p class="text-gray-600">សម្រាកខ្លី</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៧:០០ - ១៧:៣០</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សង្ខេបថ្ងៃទី១ វគ្គសំណួរ និងមតិកែលម្អ</h3>
+                            <p class="text-gray-600 mb-3">
+                                សង្ខេបចំណុចសំខាន់ៗពីថ្ងៃទី១ វគ្គសំណួរចម្លើយ និងប្រមូលមតិកែលម្អពីអ្នកចូលរួម។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> OC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">សង្ខេប</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">សំណួរ និងចម្លើយ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Day 2 Content -->
+            <div id="day2-content" class="tab-content">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold text-primary mb-4">
+                        ថ្ងៃទី២: <span class="text-gradient">ការអនុវត្ត និងសកម្មភាព</span>
+                    </h3>
+                    <p class="text-lg text-gray-600">
+                        អាទិត្យ ៧ ធ្នូ ២០២៥ | ការអនុវត្តជាក់ស្តែង និងការរៀបចំផែនការសកម្មភាពអនាគត
+                    </p>
+                </div>
+
+            <div class="space-y-6 reveal-element">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៩:០០ - ៩:៣០</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ស្វាគមន៍ និងការត្រលប់មើលថ្ងៃទី១</h3>
+                            <p class="text-gray-600 mb-3">
+                                ស្វាគមន៍ព្រឹក ត្រលប់មើលចំណុចសំខាន់ៗពីថ្ងៃទី១ និងពិនិត្យមើលមុនសម្រាប់ថ្ងៃទី២។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> OC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">ត្រលប់មើល</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">ស្វាគមន៍</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">៩:៣០ - ១០:៣០</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៨: សន្តិសុខតាមអ៊ីនធឺណិត និងទិន្នន័យ</h3>
+                            <p class="text-gray-600 mb-3">
+                                ស្វែងយល់អំពីគោលនយោបាយសន្តិសុខតាមអ៊ីនធឺណិត ការការពារទិន្នន័យ និងបញ្ហាប្រឈមក្នុងបរិបទកម្ពុជា។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> នឹងត្រូវប្រកាស
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">សន្តិសុខតាមអ៊ីនធឺណិត</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">ទិន្នន័យ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១០:៣០ - ១០:៤៥</div>
+                            <div class="text-sm text-gray-500">១៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្រាក</h3>
+                            <p class="text-gray-600">សម្រាកខ្លី និងបណ្តាញ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១០:៤៥ - ១១:៤៥</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ៩: អភិបាលកិច្ចឌីជីថលនិងសេដ្ឋកិច្ច</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការយល់ដឹងអំពីអភិបាលកិច្ចឌីជីថល សេដ្ឋកិច្ចឌីជីថល និងឱកាសសម្រាប់កម្ពុជា។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> នឹងត្រូវប្រកាស
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">សេដ្ឋកិច្ចឌីជីថល</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">អភិបាលកិច្ច</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១១:៤៥ - ១២:៤៥</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ១០: តួនាទីរបស់ក្រុមសង្គមស៊ីវិលក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត</h3>
+                            <p class="text-gray-600 mb-3">
+                                ស្វែងយល់អំពីតួនាទីសំខាន់របស់អង្គការសង្គមស៊ីវិលក្នុងការរៀបចំគោលនយោបាយអ៊ីនធឺណិត និងការការពារសិទ្ធិឌីជីថល។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ODC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">សង្គមស៊ីវិល</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">តួនាទី</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១២:៤៥ - ១៣:៤៥</div>
+                            <div class="text-sm text-gray-500">៦០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">អាហារថ្ងៃត្រង់</h3>
+                            <p class="text-gray-600">អាហារថ្ងៃត្រង់ និងបណ្តាញ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៣:៤៥ - ១៤:៣០</div>
+                            <div class="text-sm text-gray-500">៤៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ម៉ូឌុល ១១: ការណែនាំអំពីការសន្និសីទ Model ICANN</h3>
+                            <p class="text-gray-600 mb-3">
+                                ការណែនាំអំពីការសន្និសីទ Model ICANN និងការត្រៀមខ្លួនសម្រាប់ការចូលរួម។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN, OC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Model ICANN</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">ការត្រៀមខ្លួន</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៤:៣០ - ១៦:០០</div>
+                            <div class="text-sm text-gray-500">៩០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សកម្មភាពក្រុម: ការក្លែងធ្វើគោលនយោបាយ និងការសន្និសីទ Model ICANN</h3>
+                            <p class="text-gray-600 mb-3">
+                                សកម្មភាពក្រុមអន្តរកម្មដែលអ្នកចូលរួមធ្វើការជាក្រុមពហុភាគីដើម្បីដោះស្រាយបញ្ហាអភិបាលកិច្ចអ៊ីនធឺណិតពិតប្រាកដ។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> ICANN, OC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">ការក្លែងធ្វើ</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">ក្រុម</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">អន្តរកម្ម</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៦:០០ - ១៦:១៥</div>
+                            <div class="text-sm text-gray-500">១៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">សម្រាក</h3>
+                            <p class="text-gray-600">សម្រាករសៀល និងបណ្តាញ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៦:១៥ - ១៦:៤៥</div>
+                            <div class="text-sm text-gray-500">៣០ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ការរៀបចំផែនការសកម្មភាព និងជំហានបន្ទាប់</h3>
+                            <p class="text-gray-600 mb-3">
+                                វគ្គសហការដើម្បីអភិវឌ្ឍផែនការសកម្មភាពបុគ្គល និងអង្គការ កំណត់ជំហានបន្ទាប់សម្រាប់ការចូលរួមបន្ត។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> OC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">ផែនការសកម្មភាព</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">គោលដៅ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">១៦:៤៥ - ១៧:៣០</div>
+                            <div class="text-sm text-gray-500">៤៥ នាទី</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">ពិធីបិទ និងប្រគល់វិញ្ញាបនប័ត្រ</h3>
+                            <p class="text-gray-600 mb-3">
+                                ពិធីបិទដោយការប្រគល់វិញ្ញាបនប័ត្រ ថតរូបជាក្រុម និងពាក្យបិទជូនពរដំណើរការ និងឱកាសអនាគត។
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">អ្នកសម្របសម្រួល:</strong> OC, ODC, ICANN
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">វិញ្ញាបនប័ត្រ</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">បិទ</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">ជូនពរ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section id="application" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    ដំណើរការដាក់ពាក្យ
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    ចូលរួមជាមួយក្រុមបន្ទាប់របស់យើង និងក្លាយជាផ្នែកមួយនៃសហគមន៍មេដឹកនាំឌីជីថលរបស់កម្ពុជា។
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 reveal-element">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-primary mb-8">លក្ខខណ្ឌសម្រាប់ដាក់ពាក្យ</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">មូលដ្ឋានវិជ្ជាជីវៈ</h4>
+                                <p class="text-gray-600">
+                                    វិជ្ជាជីវៈពីអង្គការរដ្ឋាភិបាល ក្រុមហ៊ុនឯកជន
+                                    អង្គការសង្គមស៊ីវិល ឬស្ថាប័នសិក្សា ដែលមានចំណាប់អារម្មណ៍
+                                    ក្នុងអភិបាលកិច្ចអ៊ីនធឺណិត និងគោលនយោបាយឌីជីថល។
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-neutral font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">កម្រិតបទពិសោធន៍</h4>
+                                <p class="text-gray-600">
+                                    បទពិសោធន៍វិជ្ជាជីវៈយ៉ាងតិច ២ឆ្នាំក្នុងវិស័យពាក់ព័ន្ធ
+                                    រួមទាំងទូរគមនាគមន៍ IT គោលនយោបាយ ច្បាប់ ឬការចូលរួមសង្គមស៊ីវិល។
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-2">ការប្តេជ្ញាចិត្ត</h4>
+                                <p class="text-gray-600">
+                                    សមត្ថភាពក្នុងការប្តេជ្ញាចិត្តចំពោះរយៈពេលកម្មវិធីពេញលេញ រួមទាំង
+                                    វគ្គបណ្តុះបណ្តាល វគ្គតាមអ៊ីនធឺណិត និងលំហាត់អនុវត្តជាក់ស្តែង។
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-primary mb-8">កាលបរិច្ឆេទសំខាន់</h3>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">រយៈពេលដាក់ពាក្យ</h4>
+                                    <p class="text-sm text-gray-600">ដាក់ពាក្យសុំចូលរួម</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-secondary">ថ្ងៃទី ១-១៥ ខែវិច្ឆិកា ឆ្នាំ២០២៥</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">វគ្គណែនាំ</h4>
+                                    <p class="text-sm text-gray-600">ការណែនាំតាមអ៊ីនធឺណិត</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-accent">ថ្ងៃទី ២០ ខែវិច្ឆិកា ឆ្នាំ២០២៥</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">វគ្គរៀបចំ Model ICANN</h4>
+                                    <p class="text-sm text-gray-600">វគ្គរៀបចំតាមអ៊ីនធឺណិត</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-primary">ថ្ងៃទី ២៥ ខែវិច្ឆិកា ឆ្នាំ២០២៥</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-semibold text-primary">រយៈពេលរៀនសូត្រដោយខ្លួនឯង</h4>
+                                    <p class="text-sm text-gray-600">បញ្ចប់វគ្គរៀនតាមអ៊ីនធឺណិត</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-purple-600">ថ្ងៃទី ២០-៣០ ខែវិច្ឆិកា ឆ្នាំ២០២៥</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-semibold text-primary">កម្មវិធីនៅកន្លែង</h4>
+                                    <p class="text-sm text-gray-600">កម្មវិធីពីរថ្ងៃនៅភ្នំពេញ</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-secondary text-lg">ថ្ងៃទី ៦-៧ ខែធ្នូ ឆ្នាំ២០២៥</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <a href="#application" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 text-center block">
+                                ដាក់ពាក្យឥឡូវនេះ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="mb-4">
+                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-16 w-auto">
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        បង្កើតសមត្ថភាពក្នុងអភិបាលកិច្ចអ៊ីនធឺណិតតាមរយៈការរៀនសូត្រដោយផ្ទាល់ និងការចូលរួមពហុភាគី។
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">តំណរភ្ជាប់រហ័ស</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about-km.html" class="hover:text-secondary transition-colors">អំពីយើង</a></li>
+                        <li><a href="programs-km.html" class="hover:text-secondary transition-colors">កម្មវិធី</a></li>
+                        <li><a href="organizing-committee-km.html" class="hover:text-secondary transition-colors">គណៈកម្មាធិការរៀបចំ</a></li>
+                        <li><a href="contact-km.html" class="hover:text-secondary transition-colors">ទំនាក់ទំនង</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">ព័ត៌មានកម្មវិធី</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">៦-៧ ធ្នូ ២០២៥</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">ភ្នំពេញ កម្ពុជា</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">២០-៣០ អ្នកចូលរួម</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">ឥតគិតថ្លៃ</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; ២០២៥ APIGA Cambodia។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        duration: 800,
+                        easing: 'easeOutQuart'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-element').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tab switching function
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active', 'bg-primary', 'text-white');
+                button.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.add('active');
+
+            // Activate selected tab button
+            const activeButton = document.getElementById(tabName + '-tab');
+            activeButton.classList.add('active', 'bg-primary', 'text-white');
+            activeButton.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+
+            // Trigger animations for newly visible content
+            const revealElements = document.querySelectorAll(`#${tabName}-content .reveal-element`);
+            revealElements.forEach(element => {
+                anime({
+                    targets: element,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    easing: 'easeOutCubic'
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

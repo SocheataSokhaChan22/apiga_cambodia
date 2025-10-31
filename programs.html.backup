@@ -141,8 +141,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center">
-                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-12 w-auto">
+                    <a href="index.html" class="font-display font-bold text-3xl text-primary">
+                        APIGA <span class="text-gradient">Cambodia</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
@@ -189,6 +189,50 @@
                     Detailed 2-day schedule featuring expert speakers, interactive workshops,
                     and hands-on learning experiences in Internet governance.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Program <span class="text-gradient">Overview</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join us for an intensive 2-day program designed to build comprehensive
+                    expertise in Internet governance and digital policy development.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16 reveal-element">
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                        📅
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Dates</h3>
+                    <p class="text-gray-600">December 6-7, 2025</p>
+                    <p class="text-sm text-gray-500 mt-2">Saturday - Sunday</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-neutral text-2xl font-bold mx-auto mb-6">
+                        📍
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Venue</h3>
+                    <p class="text-gray-600">Phnom Penh, Cambodia</p>
+                    <p class="text-sm text-gray-500 mt-2">Location TBA</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                        👥
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-4">Participants</h3>
+                    <p class="text-gray-600">20-30 Selected Youth</p>
+                    <p class="text-sm text-gray-500 mt-2">Youth-focused</p>
+                </div>
             </div>
         </div>
     </section>
@@ -244,42 +288,18 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">8:30 - 9:00</div>
-                            <div class="text-sm text-gray-500">30 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Registration & Welcome Coffee</h3>
-                            <p class="text-gray-600 mb-3">
-                                Participants check in, receive materials, and network over coffee before the program begins.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> OC, ODC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Registration</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Networking</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
                             <div class="text-2xl font-bold text-primary">9:00 - 9:30</div>
                             <div class="text-sm text-gray-500">30 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Opening Remarks</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Registration & Welcome</h3>
                             <p class="text-gray-600 mb-3">
-                                Welcome by host organizations (ODC, OC, and ICANN).
+                                Welcome reception, participant registration, and opening remarks setting the stage for
+                                our journey into Internet governance.
                             </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Speakers:</strong> OC, ODC, ICANN
-                            </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Opening</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Welcome</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Networking</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Introduction</span>
                             </div>
                         </div>
                     </div>
@@ -288,20 +308,21 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">9:30 - 9:50</div>
-                            <div class="text-sm text-gray-500">20 min</div>
+                            <div class="text-2xl font-bold text-primary">9:30 - 11:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Introduction to Internet Governance</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Internet Governance Fundamentals</h3>
                             <p class="text-gray-600 mb-3">
-                                Overview of Internet Governance (IG), the multistakeholder model, and the role of key global/regional institutions. This session will also provide an overview of the different layers of digital governance.
+                                Comprehensive overview of Internet governance principles, the multistakeholder model,
+                                and key institutions shaping the global Internet ecosystem.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> ICANN
+                                <strong class="text-primary">Speaker:</strong> Dr. Sarah Chen, ICANN Regional Director
                             </div>
                             <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Keynote</span>
                                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Introduction</span>
                                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Multistakeholder</span>
                             </div>
                         </div>
@@ -311,16 +332,67 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">9:50 - 10:20</div>
-                            <div class="text-sm text-gray-500">30 min</div>
+                            <div class="text-2xl font-bold text-primary">11:00 - 11:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Internet's Unique Identifier Systems</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Networking and refreshments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">11:15 - 12:30</div>
+                            <div class="text-sm text-gray-500">75 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Cambodia's Digital Landscape</h3>
                             <p class="text-gray-600 mb-3">
-                                A focused introduction to the Internet's unique identifier systems (domain names, IP addresses, protocol parameters) and the various IG coordination bodies.
+                                In-depth analysis of Cambodia's digital transformation journey, policy frameworks,
+                                and the role of various stakeholders in shaping the digital economy.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> ICANN, DotAsia
+                                <strong class="text-primary">Speaker:</strong> H.E. Chea Vandeth, Secretary of State, MPTC
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Government</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Policy Framework</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Cambodia Context</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">12:30 - 13:30</div>
+                            <div class="text-sm text-gray-500">60 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">Lunch & Networking</h3>
+                            <p class="text-gray-600">Networking lunch with industry professionals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-6 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">13:30 - 15:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h3 class="font-bold text-xl text-primary mb-3">DNS & Technical Infrastructure</h3>
+                            <p class="text-gray-600 mb-3">
+                                Technical deep-dive into Domain Name System (DNS), Internet infrastructure,
+                                and the technical foundations that enable global Internet connectivity.
+                            </p>
+                            <div class="mb-3">
+                                <strong class="text-primary">Speaker:</strong> James Park, Technical Expert, APNIC
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Technical</span>
@@ -334,152 +406,12 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">10:20 - 10:35</div>
-                            <div class="text-sm text-gray-500">15 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
-                            <p class="text-gray-600">Informal networking</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">10:35 - 10:50</div>
-                            <div class="text-sm text-gray-500">15 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Internet Governance of vs. on the Internet</h3>
-                            <p class="text-gray-600 mb-3">
-                                Idea wall exercise.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> DotAsia, OC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Workshop</span>
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Interactive</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">10:50 - 11:35</div>
-                            <div class="text-sm text-gray-500">45 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Internet Ecosystem in ASEAN and Cambodia</h3>
-                            <p class="text-gray-600 mb-3">
-                                Deep dive into Cambodia's and ASEAN's digital ecosystem: infrastructure development, digital rights, government initiatives, and challenges.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> CADT, UNESCO, MPTC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Cambodia Context</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">ASEAN</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Policy Framework</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">11:35 - 12:05</div>
-                            <div class="text-sm text-gray-500">30 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">APNIC Policy Development Process</h3>
-                            <p class="text-gray-600 mb-3">
-                                Understanding APNIC's PDP, why it matters, and how the community contributes to Internet number resource policies.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> APNIC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">APNIC</span>
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Policy</span>
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Technical</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">12:05 - 13:15</div>
-                            <div class="text-sm text-gray-500">70 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Lunch</h3>
-                            <p class="text-gray-600">Networking lunch</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">13:15 - 14:15</div>
-                            <div class="text-sm text-gray-500">60 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Emerging Internet Governance Issues</h3>
-                            <p class="text-gray-600 mb-3">
-                                Interactive discussion on pressing IG issues: AI, cybersecurity, data protection, and misinformation.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> Invited Speaker
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">AI</span>
-                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Cybersecurity</span>
-                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Data Protection</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">14:15 - 15:00</div>
-                            <div class="text-sm text-gray-500">45 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Internet Governance: Multistakeholder Model</h3>
-                            <p class="text-gray-600 mb-3">
-                                Interactive session on the importance of diverse stakeholder participation (ICANN, APNIC, YIGF, ISOC, IETF) in shaping Internet policies.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> ICANN, APNIC, ISOC, YIGF
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Multistakeholder</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Collaboration</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Interactive</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
                             <div class="text-2xl font-bold text-primary">15:00 - 15:15</div>
                             <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Break</h3>
-                            <p class="text-gray-600">Coffee and networking</p>
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Afternoon refreshments and networking</p>
                         </div>
                     </div>
                 </div>
@@ -487,21 +419,22 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">15:15 - 16:15</div>
-                            <div class="text-sm text-gray-500">60 min</div>
+                            <div class="text-2xl font-bold text-primary">15:15 - 16:45</div>
+                            <div class="text-sm text-gray-500">90 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">IGF Proposal Exercise (Part 1)</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Workshop: Multistakeholder Engagement</h3>
                             <p class="text-gray-600 mb-3">
-                                Introductory guidance on APrIGF proposals, leading into group work to create mock IGF sessions.
+                                Interactive workshop exploring effective multistakeholder collaboration,
+                                consensus-building, and best practices for inclusive policy development.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> OC
+                                <strong class="text-primary">Facilitator:</strong> Maria Santos, Civil Society Expert
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Workshop</span>
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">IGF</span>
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Group Work</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Interactive</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Collaboration</span>
                             </div>
                         </div>
                     </div>
@@ -510,40 +443,14 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">16:15 - 17:00</div>
-                            <div class="text-sm text-gray-500">45 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">ICANN Model Conference (Preparation Part 1)</h3>
-                            <p class="text-gray-600 mb-3">
-                                Hands-on preparation for the ICANN Model Conference, where participants will simulate ICANN consensus-building processes.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> OC, Group Leaders, Mentors
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Model Conference</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Preparation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">17:00 - 17:15</div>
+                            <div class="text-2xl font-bold text-primary">16:45 - 17:00</div>
                             <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Wrap-up Day 1</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Day 1 Wrap-up & Preview</h3>
                             <p class="text-gray-600 mb-3">
-                                Recap of key learnings, reflections, and preview of Day 2.
+                                Summary of key learnings, Q&A session, and preview of Day 2 activities.
                             </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> OC
-                            </div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Summary</span>
                                 <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Q&A</span>
@@ -561,7 +468,7 @@
                         Day 2: <span class="text-gradient">Application & Action</span>
                     </h3>
                     <p class="text-lg text-gray-600">
-                        Sunday, December 7, 2025 | Practical application and future action planning
+                        Tuesday, July 16, 2025 | Practical application and future action planning
                     </p>
                 </div>
 
@@ -569,21 +476,12 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">8:30 - 9:00</div>
-                            <div class="text-sm text-gray-500">30 min</div>
+                            <div class="text-2xl font-bold text-primary">9:00 - 9:15</div>
+                            <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Registration & Welcome Coffee</h3>
-                            <p class="text-gray-600 mb-3">
-                                Participant check-in and networking.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> OC, ODC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Registration</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Networking</span>
-                            </div>
+                            <h3 class="font-bold text-xl text-primary mb-3">Day 2 Welcome & Energizer</h3>
+                            <p class="text-gray-600">Morning welcome and interactive energizer activity</p>
                         </div>
                     </div>
                 </div>
@@ -591,44 +489,22 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">9:00 - 10:00</div>
-                            <div class="text-sm text-gray-500">60 min</div>
+                            <div class="text-2xl font-bold text-primary">9:15 - 10:45</div>
+                            <div class="text-sm text-gray-500">90 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Community Connectivity Centered</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Cybersecurity & Digital Rights</h3>
                             <p class="text-gray-600 mb-3">
-                                Bridge the digital divide.
+                                Exploring the intersection of cybersecurity policy, digital rights, and privacy
+                                protection in the context of Cambodia's evolving digital landscape.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> ISOC
+                                <strong class="text-primary">Speaker:</strong> Dr. Amara Kim, Cybersecurity Policy Expert
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">ISOC</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Digital Divide</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Community</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">10:00 - 10:45</div>
-                            <div class="text-sm text-gray-500">45 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">IGF Proposal Exercise (Part 2)</h3>
-                            <p class="text-gray-600 mb-3">
-                                Participants finalize and present their mock IGF session proposals. Feedback will be provided by mentors and facilitators.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> Participants, OC
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Workshop</span>
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">IGF</span>
-                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Presentations</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Cybersecurity</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Digital Rights</span>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Privacy</span>
                             </div>
                         </div>
                     </div>
@@ -641,8 +517,8 @@
                             <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Break</h3>
-                            <p class="text-gray-600">Coffee and networking</p>
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Morning refreshments and networking</p>
                         </div>
                     </div>
                 </div>
@@ -650,21 +526,22 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">11:00 - 11:45</div>
-                            <div class="text-sm text-gray-500">45 min</div>
+                            <div class="text-2xl font-bold text-primary">11:00 - 12:30</div>
+                            <div class="text-sm text-gray-500">90 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">ICANN Model Conference (Preparation Part 2)</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Workshop: Policy Simulation Exercise</h3>
                             <p class="text-gray-600 mb-3">
-                                Hands-on preparation for the ICANN Model Conference, where participants will simulate ICANN consensus-building processes.
+                                Hands-on policy simulation where participants work in multistakeholder groups
+                                to address a real-world Internet governance challenge facing Cambodia.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> OC, Group Leaders, Mentors, Participants
+                                <strong class="text-primary">Facilitator:</strong> Robert Johnson, Policy Simulation Expert
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">ICANN</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Model Conference</span>
-                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Preparation</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Simulation</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Group Work</span>
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Problem Solving</span>
                             </div>
                         </div>
                     </div>
@@ -673,12 +550,12 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">11:45 - 12:45</div>
+                            <div class="text-2xl font-bold text-primary">12:30 - 13:30</div>
                             <div class="text-sm text-gray-500">60 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Lunch Break</h3>
-                            <p class="text-gray-600">Extended networking and informal discussions with facilitators and peers</p>
+                            <h3 class="font-bold text-xl text-primary mb-3">Lunch & Networking</h3>
+                            <p class="text-gray-600">Networking lunch with continued group discussions</p>
                         </div>
                     </div>
                 </div>
@@ -686,21 +563,22 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">12:45 - 15:15</div>
-                            <div class="text-sm text-gray-500">150 min</div>
+                            <div class="text-2xl font-bold text-primary">13:30 - 15:00</div>
+                            <div class="text-sm text-gray-500">90 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">ICANN Model Conference (Simulation)</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Emerging Technologies & AI Governance</h3>
                             <p class="text-gray-600 mb-3">
-                                Participants conduct the simulated ICANN meeting, practicing consensus-building and decision-making.
+                                Forward-looking session on emerging technologies, artificial intelligence governance,
+                                and preparing for future Internet governance challenges.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> OC, Participants
+                                <strong class="text-primary">Speaker:</strong> Dr. Lisa Wong, AI Ethics & Governance Researcher
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">ICANN</span>
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Simulation</span>
-                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Consensus Building</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">AI Governance</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Emerging Tech</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Future</span>
                             </div>
                         </div>
                     </div>
@@ -709,12 +587,12 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">15:15 - 15:30</div>
+                            <div class="text-2xl font-bold text-primary">15:00 - 15:15</div>
                             <div class="text-sm text-gray-500">15 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Break</h3>
-                            <p class="text-gray-600">Coffee and networking</p>
+                            <h3 class="font-bold text-xl text-primary mb-3">Coffee Break</h3>
+                            <p class="text-gray-600">Final networking break</p>
                         </div>
                     </div>
                 </div>
@@ -722,21 +600,22 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">15:30 - 16:15</div>
-                            <div class="text-sm text-gray-500">45 min</div>
+                            <div class="text-2xl font-bold text-primary">15:15 - 16:30</div>
+                            <div class="text-sm text-gray-500">75 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Digital Inclusion & Youth Advocacy</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Action Planning & Next Steps</h3>
                             <p class="text-gray-600 mb-3">
-                                Exploring strategies, tools, and campaigns to ensure youth voices, especially marginalized groups, are included in digital policymaking.
+                                Collaborative session to develop individual and organizational action plans,
+                                identify next steps, and plan for ongoing engagement in Internet governance.
                             </p>
                             <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> Ms. Munny Rochom (Executive Committee of the Network of Indigenous Women in Asia), Youth Speakers from indigenous community and successful advocacy stories, ODC
+                                <strong class="text-primary">Facilitator:</strong> APIGA Cambodia Team
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Digital Inclusion</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Youth Advocacy</span>
-                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Marginalized Groups</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Action Planning</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Goal Setting</span>
+                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Follow-up</span>
                             </div>
                         </div>
                     </div>
@@ -745,44 +624,19 @@
                 <div class="bg-white rounded-xl p-8 shadow-lg">
                     <div class="grid md:grid-cols-4 gap-6 items-center">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">16:15 - 17:00</div>
-                            <div class="text-sm text-gray-500">45 min</div>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Way Forward: Building Your IG Journey</h3>
-                            <p class="text-gray-600 mb-3">
-                                Consolidated closing session reflecting on key learnings and mapping concrete next steps for participants. Includes guidance on how to stay engaged through APIGA, YIGF, ICANN, IGF, ISOC, APNIC fellowships, and other regional opportunities.
-                            </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitator:</strong> NetMission
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Career Development</span>
-                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Opportunities</span>
-                                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Next Steps</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8 shadow-lg">
-                    <div class="grid md:grid-cols-4 gap-6 items-center">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-primary">17:00 - 17:30</div>
+                            <div class="text-2xl font-bold text-primary">16:30 - 17:00</div>
                             <div class="text-sm text-gray-500">30 min</div>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="font-bold text-xl text-primary mb-3">Closing & Certificates</h3>
+                            <h3 class="font-bold text-xl text-primary mb-3">Closing Ceremony & Certificates</h3>
                             <p class="text-gray-600 mb-3">
-                                Closing remarks, certificate distribution, and group photo.
+                                Program wrap-up, certificate presentation, group photo, and closing remarks
+                                celebrating the journey and future opportunities.
                             </p>
-                            <div class="mb-3">
-                                <strong class="text-primary">Facilitators:</strong> Organizers, Alumni
-                            </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Closing</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Certificates</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Group Photo</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Certificates</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Celebration</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Alumni Network</span>
                             </div>
                         </div>
                     </div>
@@ -792,8 +646,51 @@
         </div>
     </section>
 
+    <!-- Application Encouragement -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-element">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Ready to Join the <span class="text-gradient">Next Cohort</span>?
+                </h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                    Don't miss this opportunity to become part of Cambodia's Internet governance community.
+                    Connect with experts, build your network, and contribute to Cambodia's digital future.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-secondary mb-2">2</div>
+                        <div class="text-sm text-gray-200">Intensive days of learning</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-accent mb-2">12</div>
+                        <div class="text-sm text-gray-200">Expert sessions & workshops</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                        <div class="text-3xl font-bold text-secondary mb-2">50+</div>
+                        <div class="text-sm text-gray-200">Professional connections</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="about.html" class="bg-secondary text-neutral px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300">
+                        Learn More About Program
+                    </a>
+                    <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Apply Now
+                    </a>
+                </div>
+
+                <p class="mt-6 text-gray-300 text-sm">
+                    Application deadline: May 15, 2025 | Limited to 50 participants
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Application Process -->
-    <section id="application" class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-element">
                 <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
@@ -857,57 +754,51 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center pb-4 border-b border-gray-200">
                                 <div>
-                                    <h4 class="font-semibold text-primary">Application Period</h4>
-                                    <p class="text-sm text-gray-600">Submit your application</p>
+                                    <h4 class="font-semibold text-primary">Application Opening</h4>
+                                    <p class="text-sm text-gray-600">Next cohort applications</p>
                                 </div>
                                 <div class="text-right">
-                                    <div class="font-bold text-secondary">November 1-15, 2025</div>
+                                    <div class="font-bold text-secondary">April 1, 2025</div>
+                                    <div class="text-sm text-gray-600">9:00 AM</div>
                                 </div>
                             </div>
-
+                            
                             <div class="flex justify-between items-center pb-4 border-b border-gray-200">
                                 <div>
-                                    <h4 class="font-semibold text-primary">Orientation Session</h4>
-                                    <p class="text-sm text-gray-600">Online introduction</p>
+                                    <h4 class="font-semibold text-primary">Application Deadline</h4>
+                                    <p class="text-sm text-gray-600">Final submission date</p>
                                 </div>
                                 <div class="text-right">
-                                    <div class="font-bold text-accent">November 20, 2025</div>
+                                    <div class="font-bold text-accent">May 15, 2025</div>
+                                    <div class="text-sm text-gray-600">11:59 PM</div>
                                 </div>
                             </div>
-
+                            
                             <div class="flex justify-between items-center pb-4 border-b border-gray-200">
                                 <div>
-                                    <h4 class="font-semibold text-primary">ICANN Model Conference Prep</h4>
-                                    <p class="text-sm text-gray-600">Online preparation session</p>
+                                    <h4 class="font-semibold text-primary">Selection Announcement</h4>
+                                    <p class="text-sm text-gray-600">Selected participants</p>
                                 </div>
                                 <div class="text-right">
-                                    <div class="font-bold text-primary">November 25, 2025</div>
+                                    <div class="font-bold text-primary">June 1, 2025</div>
+                                    <div class="text-sm text-gray-600">5:00 PM</div>
                                 </div>
                             </div>
-
-                            <div class="flex justify-between items-center pb-4 border-b border-gray-200">
-                                <div>
-                                    <h4 class="font-semibold text-primary">Self-Learning Course Period</h4>
-                                    <p class="text-sm text-gray-600">Complete online courses</p>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-bold text-purple-600">November 20-30, 2025</div>
-                                </div>
-                            </div>
-
+                            
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <h4 class="font-semibold text-primary">In-Person Program</h4>
-                                    <p class="text-sm text-gray-600">Two-day event in Phnom Penh</p>
+                                    <h4 class="font-semibold text-primary">Program Start</h4>
+                                    <p class="text-sm text-gray-600">First workshop session</p>
                                 </div>
                                 <div class="text-right">
-                                    <div class="font-bold text-secondary text-lg">December 6-7, 2025</div>
+                                    <div class="font-bold text-secondary">July 15, 2025</div>
+                                    <div class="text-sm text-gray-600">9:00 AM</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mt-8 pt-6 border-t border-gray-200">
-                            <a href="#application" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 text-center block">
+                            <a href="contact.html" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 text-center block">
                                 Apply Now
                             </a>
                         </div>
@@ -922,8 +813,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <div class="mb-4">
-                        <img src="resources/apiga_logo.png" alt="APIGA Cambodia" class="h-16 w-auto">
+                    <div class="font-display font-bold text-3xl mb-4">
+                        APIGA <span class="text-gradient">Cambodia</span>
                     </div>
                     <p class="text-gray-300 mb-6 leading-relaxed">
                         Building capacity in Internet governance through hands-on learning and multistakeholder engagement.
